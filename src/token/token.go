@@ -6,7 +6,7 @@ const (
 	LET      = "LET"
 
 	// Identifiers and Literals
-	IDENT = "IDENT" // variable names
+	IDENT = "IDENT" // user defined variable names
 	INT   = "INT"
 
 	// Operators
@@ -32,4 +32,17 @@ type TokenType string
 type Token struct {
 	Type    TokenType
 	Literal string
+}
+
+var keywords = map[string]TokenType{
+	"fn":  FUNCTION,
+	"let": LET,
+}
+
+func LookupIdent(ident string) TokenType {
+	if tok, ok := keywords[ident]; ok {
+		return tok
+	}
+
+	return IDENT
 }
