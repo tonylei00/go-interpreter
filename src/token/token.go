@@ -1,5 +1,6 @@
 package token
 
+// Token Types:
 const (
 	// Keywords
 	FUNCTION = "FUNCTION"

@@ -53,11 +53,9 @@ func (rs *ReturnStatement) String() string {
 	var out bytes.Buffer
 
 	out.WriteString(rs.TokenLiteral() + " ")
-
 	if rs.ReturnValue != nil {
 		out.WriteString(rs.ReturnValue.String())
 	}
-
 	out.WriteString(";")
 
 	return out.String()
@@ -92,6 +90,11 @@ type Identifier struct {
 	Value string
 }
 
+/*
+The Identifier struct implements the ExpressionNode interface
+to keep things simple as Identifiers in other parts of the program
+can produce values
+*/
 func (i *Identifier) expressionNode()      {}
 func (i *Identifier) TokenLiteral() string { return i.Token.Literal }
 func (i *Identifier) String() string       { return i.Value }

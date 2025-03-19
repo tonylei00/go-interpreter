@@ -15,8 +15,8 @@ func Start(in io.Reader, out io.Writer) {
 
 	for {
 		fmt.Print(PROMPT)
-		scanned := scanner.Scan()
-		if !scanned {
+		ok := scanner.Scan()
+		if !ok {
 			return
 		}
 
